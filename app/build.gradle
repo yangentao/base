@@ -26,7 +26,7 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
-//    implementation 'dev.entao:base:2.0.1'
+    implementation 'dev.entao.kan:log:3.0.0'
 
     implementation project(':baselib')
 }
