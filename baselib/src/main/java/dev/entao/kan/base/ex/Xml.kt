@@ -1,8 +1,8 @@
 @file:Suppress("unused")
 
-package dev.entao.base.ex
+package dev.entao.kan.base.ex
 
-import dev.entao.base.MyDate
+import dev.entao.kan.base.MyDate
 import org.w3c.dom.Document
 import org.w3c.dom.Element
 import org.w3c.dom.Node

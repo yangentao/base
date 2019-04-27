@@ -1,6 +1,6 @@
 @file:Suppress("unused", "MemberVisibilityCanBePrivate")
 
-package dev.entao.base
+package dev.entao.kan.base
 
 import java.text.SimpleDateFormat
 import java.util.*
@@ -185,7 +185,7 @@ class MyDate(time: Long = System.currentTimeMillis(), locale: Locale = Locale.ge
 	}
 
 	fun format(pattern: String): String {
-		return Companion.format(time, pattern)
+		return format(time, pattern)
 	}
 
 	fun formatShort(): String {
@@ -294,3 +294,9 @@ class MyDate(time: Long = System.currentTimeMillis(), locale: Locale = Locale.ge
 		}
 	}
 }
+
+
+
+val Int.SEC: Long get() = (this * 1000).toLong()
+val Int.MIN: Long get() = (this * 60_000).toLong()
+val Int.HOUR: Long get() = (this * 3600_000).toLong()

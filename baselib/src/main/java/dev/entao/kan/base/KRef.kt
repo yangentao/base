@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.entao.base
+package dev.entao.kan.base
 
 import kotlin.jvm.internal.CallableReference
 import kotlin.jvm.internal.FunctionReference

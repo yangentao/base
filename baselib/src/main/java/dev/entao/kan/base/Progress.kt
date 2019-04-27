@@ -1,4 +1,4 @@
-package dev.entao.base
+package dev.entao.kan.base
 
 /**
  * Created by entaoyang@163.com on 16/6/17.

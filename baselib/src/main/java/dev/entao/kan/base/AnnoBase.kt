@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.entao.base
+package dev.entao.kan.base
 
 import kotlin.reflect.*
 import kotlin.reflect.full.findAnnotation

@@ -1,8 +1,7 @@
-package yet.ext
+package dev.entao.kan.base
 
-import dev.entao.base.MyDate
-import dev.entao.base.fullNameProp
-import dev.entao.base.isTypeString
+import java.sql.Date
+import java.sql.Time
 import kotlin.reflect.KClassifier
 import kotlin.reflect.KProperty
 
@@ -117,7 +116,7 @@ object SQLDateText : ITextConvert {
 	}
 
 	override fun toText(value: Any): String {
-		return MyDate((value as java.sql.Date).time).formatDate()
+		return MyDate((value as Date).time).formatDate()
 	}
 }
 
@@ -129,7 +128,7 @@ object SQLTimeText : ITextConvert {
 	}
 
 	override fun toText(value: Any): String {
-		return MyDate((value as java.sql.Time).time).formatTime()
+		return MyDate((value as Time).time).formatTime()
 	}
 }
 

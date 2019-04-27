@@ -1,4 +1,4 @@
-package dev.entao.base.ex
+package dev.entao.kan.base.ex
 
 
 

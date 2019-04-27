@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.entao.base
+package dev.entao.kan.base
 
 import java.io.Closeable
 import java.io.IOException
@@ -140,6 +140,3 @@ fun Sleep(ms: Int) {
 }
 
 
-val Int.SEC: Long get() = (this * 1000).toLong()
-val Int.MIN: Long get() = (this * 60_000).toLong()
-val Int.HOUR: Long get() = (this * 3600_000).toLong()

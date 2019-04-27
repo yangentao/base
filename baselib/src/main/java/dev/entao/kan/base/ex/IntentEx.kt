@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package dev.entao.base.ex
+package dev.entao.kan.base.ex
 
 import android.content.Intent
 

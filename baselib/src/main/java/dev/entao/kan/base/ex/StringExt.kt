@@ -1,6 +1,6 @@
 @file:Suppress("unused", "LocalVariableName")
 
-package dev.entao.base.ex
+package dev.entao.kan.base.ex
 
 import android.util.Base64
 import java.util.*
@@ -129,6 +129,15 @@ fun String.tail(n: Int): String {
     return this.substring(this.length - n)
 }
 
+fun String.head(n: Int): String {
+    if (n <= 0) {
+        return ""
+    }
+    if (this.length <= n) {
+        return this
+    }
+    return this.substring(0, n)
+}
 //分隔成长度不大于n的字符串数组
 fun String.truck(n: Int): List<String> {
     val ls = ArrayList<String>()

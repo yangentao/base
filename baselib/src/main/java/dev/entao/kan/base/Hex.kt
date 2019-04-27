@@ -1,4 +1,4 @@
-package dev.entao.base
+package dev.entao.kan.base
 
 object Hex {
 	private val DICT = "0123456789ABCDEF"
@@ -11,11 +11,11 @@ object Hex {
 		return String(arr)
 	}
 	fun encodeString(s: String): String {
-		return this.encode(s.toByteArray(Charsets.UTF_8))
+		return encode(s.toByteArray(Charsets.UTF_8))
 	}
 
 	fun decodeString(s: String): String? {
-		val bs = this.decode(s) ?: return null
+		val bs = decode(s) ?: return null
 		return String(bs, Charsets.UTF_8)
 	}
 

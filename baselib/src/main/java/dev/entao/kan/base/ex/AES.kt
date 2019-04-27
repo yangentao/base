@@ -1,4 +1,4 @@
-package dev.entao.base.ex
+package dev.entao.kan.base.ex
 
 import javax.crypto.Cipher
 import javax.crypto.spec.SecretKeySpec
