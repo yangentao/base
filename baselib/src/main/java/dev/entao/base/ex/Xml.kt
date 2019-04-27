@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package dev.entao.base.ex
 
 import dev.entao.base.MyDate
@@ -117,7 +119,7 @@ fun Element.elements(name: String): List<Element> {
 	val es = ArrayList<Element>(16)
 	val ls = this.getElementsByTagName(name)
 	if (ls != null) {
-		for (i in 0..ls.length - 1) {
+		for (i in 0 until ls.length) {
 			val e = ls.item(i) as Element
 			es.add(e)
 		}

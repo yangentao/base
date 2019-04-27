@@ -13,7 +13,7 @@ import java.util.*
 const val UTF8 = "UTF-8"
 private const val PROGRESS_DELAY = 50
 
-typealias BlockUnit = ()->Unit
+typealias BlockUnit = () -> Unit
 
 fun <T : Closeable> T?.closeSafe() {
     try {
@@ -59,7 +59,6 @@ fun copyStream(input: InputStream, closeIs: Boolean, os: OutputStream, closeOs: 
 }
 
 
-
 val collatorChina = Collator.getInstance(Locale.CHINA)
 val chinaComparator = Comparator<String> { left, right -> collatorChina.compare(left, right) }
 
@@ -81,6 +80,7 @@ inline fun <T : Closeable> T?.useSafe(block: (T) -> Unit) {
         this.closeSafe()
     }
 }
+
 inline fun <T : Closeable> T.closeAfter(block: (T) -> Unit): Unit {
     try {
         block(this)
@@ -140,3 +140,6 @@ fun Sleep(ms: Int) {
 }
 
 
+val Int.SEC: Long get() = (this * 1000).toLong()
+val Int.MIN: Long get() = (this * 60_000).toLong()
+val Int.HOUR: Long get() = (this * 3600_000).toLong()
