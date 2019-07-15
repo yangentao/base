@@ -9,21 +9,20 @@ import java.util.*
  * Created by entaoyang@163.com on 16/5/13.
  */
 
-// 去掉所有空格, 剩下全数字
-fun FormatPhone(tel: String?): String? {
-    var phone: String = tel ?: return null
-    phone = phone.filter { it in '0'..'9' }
-    if (phone.length == 12 && phone.startsWith("01")) {//013812345678, 固话也可能是12位, 0531+12345678
-        return phone.substring(1)
+
+val String.formatedPhone: String
+    get() {
+        val sb = StringBuilder(20)
+        for (ch in this) {
+            if (ch in '0'..'9') {
+                sb.append(ch)
+            } else if (ch == '+') {
+                sb.append(ch)
+            }
+        }
+        return sb.toString()
     }
-    if (phone.length == 13 && phone.startsWith("86")) {//86 13812345678
-        return phone.substring(2)
-    }
-    if (phone.length == 14 && phone.startsWith("086")) {//086 13812345678
-        return phone.substring(3)
-    }
-    return if (phone.length >= 3) phone else null
-}
+
 
 val String.base64Decoded: String
     get() {
@@ -138,6 +137,7 @@ fun String.head(n: Int): String {
     }
     return this.substring(0, n)
 }
+
 //分隔成长度不大于n的字符串数组
 fun String.truck(n: Int): List<String> {
     val ls = ArrayList<String>()
