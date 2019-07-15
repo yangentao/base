@@ -16,7 +16,7 @@ val String.formatedPhone: String
         for (ch in this) {
             if (ch in '0'..'9') {
                 sb.append(ch)
-            } else if (ch == '+') {
+            } else if (ch == '+' || ch == ',') {
                 sb.append(ch)
             }
         }
