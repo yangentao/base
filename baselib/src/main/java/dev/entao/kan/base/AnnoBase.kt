@@ -31,6 +31,20 @@ annotation class FormOptions(vararg val options: String)
 annotation class Required
 
 
+enum class ExcludeFor {
+    ALL, SQL, JSON
+}
+
+
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FIELD)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Exclude(val value: ExcludeFor = ExcludeFor.ALL)
+
+//字段长度--字符串
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FIELD)
+@Retention(AnnotationRetention.RUNTIME)
+annotation class Length(val value: Int)
+
 inline fun <reified T : Annotation> KAnnotatedElement.hasAnnotation(): Boolean = null != this.findAnnotation<T>()
 
 val KProperty<*>.nameProp: String
