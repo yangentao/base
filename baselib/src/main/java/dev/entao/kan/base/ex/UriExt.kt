@@ -26,3 +26,8 @@ fun Uri.parseId(): Long {
 }
 
 
+fun Uri.arg(key: String, value: String): Uri {
+    return this.buildUpon().appendQueryParameter(key, value).build()
+}
+
+
