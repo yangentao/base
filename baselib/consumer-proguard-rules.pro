@@ -21,6 +21,10 @@
 #-renamesourcefileattribute SourceFile
 
 
+-keepclassmembers class kotlin.Metadata {
+   public <methods>;
+}
+
 -keep class dev.entao.kan.base.KeepMembers
 -keep class dev.entao.kan.base.KeepNames
 -keepclassmembers @dev.entao.kan.base.KeepMembers class * {*;}
@@ -32,3 +36,4 @@
 -keepnames  class * {
     *** setValue(***);
 }
+
