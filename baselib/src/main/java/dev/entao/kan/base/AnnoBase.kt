@@ -7,6 +7,35 @@ import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.jvm.javaField
 
 
+@Retention(AnnotationRetention.BINARY)
+@Target(
+    AnnotationTarget.CLASS,
+    AnnotationTarget.FILE,
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.PROPERTY_GETTER,
+    AnnotationTarget.PROPERTY_SETTER,
+    AnnotationTarget.FIELD
+)
+annotation class KeepMembers
+
+@Retention(AnnotationRetention.BINARY)
+@Target(
+    AnnotationTarget.CLASS,
+    AnnotationTarget.FILE,
+    AnnotationTarget.ANNOTATION_CLASS,
+    AnnotationTarget.CONSTRUCTOR,
+    AnnotationTarget.FUNCTION,
+    AnnotationTarget.PROPERTY,
+    AnnotationTarget.PROPERTY_GETTER,
+    AnnotationTarget.PROPERTY_SETTER,
+    AnnotationTarget.FIELD
+)
+annotation class KeepNames
+
+
 @Target(AnnotationTarget.FIELD, AnnotationTarget.PROPERTY, AnnotationTarget.FUNCTION, AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 annotation class Label(val value: String)
@@ -102,8 +131,6 @@ val KProperty<*>.defaultValue: String?
     get() {
         return this.findAnnotation<DefaultValue>()?.value
     }
-
-
 
 
 val KProperty0<*>.selectLabel: String
