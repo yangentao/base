@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+
+-keep class dev.entao.kan.base.KeepMembers
+-keep class dev.entao.kan.base.KeepNames
+-keepclassmembers @dev.entao.kan.base.KeepMembers class * {*;}
+-keepnames @dev.entao.kan.base.KeepNames class * {*;}
+
+-keepnames  class * {
+    *** getValue(***);
+}
+-keepnames  class * {
+    *** setValue(***);
+}

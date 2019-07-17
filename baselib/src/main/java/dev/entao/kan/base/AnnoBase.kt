@@ -8,31 +8,11 @@ import kotlin.reflect.jvm.javaField
 
 
 @Retention(AnnotationRetention.BINARY)
-@Target(
-    AnnotationTarget.CLASS,
-    AnnotationTarget.FILE,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.PROPERTY,
-    AnnotationTarget.PROPERTY_GETTER,
-    AnnotationTarget.PROPERTY_SETTER,
-    AnnotationTarget.FIELD
-)
+@Target(AnnotationTarget.CLASS)
 annotation class KeepMembers
 
 @Retention(AnnotationRetention.BINARY)
-@Target(
-    AnnotationTarget.CLASS,
-    AnnotationTarget.FILE,
-    AnnotationTarget.ANNOTATION_CLASS,
-    AnnotationTarget.CONSTRUCTOR,
-    AnnotationTarget.FUNCTION,
-    AnnotationTarget.PROPERTY,
-    AnnotationTarget.PROPERTY_GETTER,
-    AnnotationTarget.PROPERTY_SETTER,
-    AnnotationTarget.FIELD
-)
+@Target(AnnotationTarget.CLASS)
 annotation class KeepNames
 
 
