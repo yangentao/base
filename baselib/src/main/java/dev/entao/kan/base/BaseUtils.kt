@@ -15,6 +15,8 @@ private const val PROGRESS_DELAY = 50
 
 typealias BlockUnit = () -> Unit
 
+
+
 fun <T : Closeable> T?.closeSafe() {
     try {
         this?.close()
