@@ -217,3 +217,13 @@ val String.escapedXML: String
     get() {
         return this.replaceChars('<' to "&lt;", '>' to "&gt;", '&' to "&amp;", '"' to "&quot;", '\'' to "&apos;")
     }
+
+
+val String.lowerCased: String
+    get() {
+        return this.toLowerCase(Locale.getDefault())
+    }
+val String.upperCased: String
+    get() {
+        return this.toUpperCase(Locale.getDefault())
+    }
