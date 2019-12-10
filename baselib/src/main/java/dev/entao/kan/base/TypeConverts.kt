@@ -157,7 +157,7 @@ fun <V> defaultValueOfProperty(p: KProperty<*>): V {
 		return c.defaultValue as V
 	}
 
-	throw IllegalArgumentException("不支持的类型modelMap: ${p.fullNameProp}")
+	throw IllegalArgumentException("不支持的类型modelMap: ${p.fullName}")
 }
 
 @Suppress("UNCHECKED_CAST")
@@ -170,7 +170,7 @@ fun <V> strToV(v: String, property: KProperty<*>): V {
 	if (c != null) {
 		return c.fromText(v) as V
 	}
-	throw IllegalArgumentException("不支持的类型${property.fullNameProp}")
+	throw IllegalArgumentException("不支持的类型${property.fullName}")
 }
 
 

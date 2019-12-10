@@ -56,55 +56,55 @@ annotation class Length(val value: Int)
 
 inline fun <reified T : Annotation> KAnnotatedElement.hasAnnotation(): Boolean = null != this.findAnnotation<T>()
 
-val KProperty<*>.nameProp: String
+val KProperty<*>.userName: String
     get() {
         return this.findAnnotation<Name>()?.value ?: this.name
     }
-val KProperty<*>.fullNameProp: String
+val KProperty<*>.fullName: String
     get() {
-        val clsName = this.javaField?.declaringClass?.kotlin?.nameClass
+        val clsName = this.javaField?.declaringClass?.kotlin?.userName
         val fname = this.findAnnotation<Name>()?.value ?: this.name
         return clsName!! + "." + fname
     }
 
-val KClass<*>.nameClass: String
+val KClass<*>.userName: String
     get() {
         return this.findAnnotation<Name>()?.value ?: this.simpleName!!
     }
 
-val KParameter.nameParam: String
+val KParameter.userName: String
     get() {
         return this.findAnnotation<Name>()?.value ?: this.name
         ?: throw IllegalStateException("参数没有名字")
     }
 
-val KFunction<*>.nameFun: String
+val KFunction<*>.userName: String
     get() {
         return this.findAnnotation<Name>()?.value ?: this.name
     }
 
-val KClass<*>.labelClass: String
+val KClass<*>.userLabel: String
     get() {
         return this.findAnnotation<Label>()?.value ?: this.simpleName!!
     }
 
 
-val KProperty<*>.labelProp: String?
+val KProperty<*>.labelValue: String?
     get() {
         return this.findAnnotation<Label>()?.value
     }
-val KProperty<*>.labelProp_: String
+val KProperty<*>.userLabel: String
     get() {
-        return this.findAnnotation<Label>()?.value ?: this.nameProp
+        return this.findAnnotation<Label>()?.value ?: this.userName
     }
 
-val KFunction<*>.labelFun: String?
+val KFunction<*>.labelValue: String?
     get() {
         return this.findAnnotation<Label>()?.value
     }
-val KFunction<*>.labelFun_: String
+val KFunction<*>.userLabel: String
     get() {
-        return this.findAnnotation<Label>()?.value ?: this.nameFun
+        return this.findAnnotation<Label>()?.value ?: this.userName
     }
 
 val KProperty<*>.defaultValue: String?

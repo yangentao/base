@@ -11,292 +11,294 @@ import java.util.*
  * 2016-9-26
  */
 
+val Int.SEC: Long get() = this * 1000L
+val Int.MIN: Long get() = this * 60_000L
+val Int.HOR: Long get() = this * 3600_000L
+val Int.HOUR: Long get() = this * 3600_000L
+
+
 class MyDate(time: Long = System.currentTimeMillis(), locale: Locale = Locale.getDefault()) {
-	val calendar: Calendar = Calendar.getInstance(locale)
+    val calendar: Calendar = Calendar.getInstance(locale)
 
-	init {
-		calendar.timeInMillis = time
-	}
+    init {
+        calendar.timeInMillis = time
+    }
 
-	val utilDate: java.util.Date get() = java.util.Date(time)
-	val sqlDate: java.sql.Date get() = java.sql.Date(time)
-	val sqlTime: java.sql.Time get() = java.sql.Time(time)
+    val utilDate: java.util.Date get() = java.util.Date(time)
+    val sqlDate: java.sql.Date get() = java.sql.Date(time)
+    val sqlTime: java.sql.Time get() = java.sql.Time(time)
 
-	var time: Long
-		get() {
-			return calendar.timeInMillis
-		}
-		set(value) {
-			calendar.timeInMillis = value
-		}
+    var time: Long
+        get() {
+            return calendar.timeInMillis
+        }
+        set(value) {
+            calendar.timeInMillis = value
+        }
 
-	//2016
-	var year: Int
-		get() {
-			return calendar.get(Calendar.YEAR)
-		}
-		set(value) {
-			calendar.set(Calendar.YEAR, value)
-		}
-	//[0-11], 8
-	var month: Int
-		get() {
-			return calendar.get(Calendar.MONTH)
-		}
-		set(value) {
-			calendar.set(Calendar.MONTH, value)
-		}
-	//[1-31],  26
-	var day: Int
-		get() {
-			return calendar.get(Calendar.DAY_OF_MONTH)
-		}
-		set(value) {
-			calendar.set(Calendar.DAY_OF_MONTH, value)
-		}
+    //2016
+    var year: Int
+        get() {
+            return calendar.get(Calendar.YEAR)
+        }
+        set(value) {
+            calendar.set(Calendar.YEAR, value)
+        }
+    //[0-11], 8
+    var month: Int
+        get() {
+            return calendar.get(Calendar.MONTH)
+        }
+        set(value) {
+            calendar.set(Calendar.MONTH, value)
+        }
+    //[1-31],  26
+    var day: Int
+        get() {
+            return calendar.get(Calendar.DAY_OF_MONTH)
+        }
+        set(value) {
+            calendar.set(Calendar.DAY_OF_MONTH, value)
+        }
 
-	var dayOfYear: Int
-		get() {
-			return calendar.get(Calendar.DAY_OF_YEAR)
-		}
-		set(value) {
-			calendar.set(Calendar.DAY_OF_YEAR, value)
-		}
+    var dayOfYear: Int
+        get() {
+            return calendar.get(Calendar.DAY_OF_YEAR)
+        }
+        set(value) {
+            calendar.set(Calendar.DAY_OF_YEAR, value)
+        }
 
-	//[0-23]
-	var hour: Int
-		get() {
-			return calendar.get(Calendar.HOUR_OF_DAY)
-		}
-		set(value) {
-			calendar.set(Calendar.HOUR_OF_DAY, value)
-		}
+    //[0-23]
+    var hour: Int
+        get() {
+            return calendar.get(Calendar.HOUR_OF_DAY)
+        }
+        set(value) {
+            calendar.set(Calendar.HOUR_OF_DAY, value)
+        }
 
-	//[0-59]
-	var minute: Int
-		get() {
-			return calendar.get(Calendar.MINUTE)
-		}
-		set(value) {
-			calendar.set(Calendar.MINUTE, value)
-		}
-	//[0-59]
-	var second: Int
-		get() {
-			return calendar.get(Calendar.SECOND)
-		}
-		set(value) {
-			calendar.set(Calendar.SECOND, value)
-		}
-	//[0-999]
-	var millSecond: Int
-		get() {
-			return calendar.get(Calendar.MILLISECOND)
-		}
-		set(value) {
-			calendar.set(Calendar.MILLISECOND, value)
-		}
-
-
-	var week: Int
-		get() {
-			return calendar.get(Calendar.DAY_OF_WEEK)
-		}
-		set(value) {
-			calendar.set(Calendar.DAY_OF_WEEK, value)
-		}
-
-	val isSunday: Boolean get() = week == Calendar.SUNDAY
-	val isMonday: Boolean get() = week == Calendar.MONDAY
-	val isTuesday: Boolean get() = week == Calendar.TUESDAY
-	val isWednesday: Boolean get() = week == Calendar.WEDNESDAY
-	val isThursday: Boolean get() = week == Calendar.THURSDAY
-	val isFriday: Boolean get() = week == Calendar.FRIDAY
-	val isSaturday: Boolean get() = week == Calendar.SATURDAY
+    //[0-59]
+    var minute: Int
+        get() {
+            return calendar.get(Calendar.MINUTE)
+        }
+        set(value) {
+            calendar.set(Calendar.MINUTE, value)
+        }
+    //[0-59]
+    var second: Int
+        get() {
+            return calendar.get(Calendar.SECOND)
+        }
+        set(value) {
+            calendar.set(Calendar.SECOND, value)
+        }
+    //[0-999]
+    var millSecond: Int
+        get() {
+            return calendar.get(Calendar.MILLISECOND)
+        }
+        set(value) {
+            calendar.set(Calendar.MILLISECOND, value)
+        }
 
 
-	fun addYear(n: Int): MyDate {
-		calendar.add(Calendar.YEAR, n)
-		return this
-	}
+    var week: Int
+        get() {
+            return calendar.get(Calendar.DAY_OF_WEEK)
+        }
+        set(value) {
+            calendar.set(Calendar.DAY_OF_WEEK, value)
+        }
 
-	fun addMonth(n: Int): MyDate {
-		calendar.add(Calendar.MONTH, n)
-		return this
-	}
+    val isSunday: Boolean get() = week == Calendar.SUNDAY
+    val isMonday: Boolean get() = week == Calendar.MONDAY
+    val isTuesday: Boolean get() = week == Calendar.TUESDAY
+    val isWednesday: Boolean get() = week == Calendar.WEDNESDAY
+    val isThursday: Boolean get() = week == Calendar.THURSDAY
+    val isFriday: Boolean get() = week == Calendar.FRIDAY
+    val isSaturday: Boolean get() = week == Calendar.SATURDAY
 
-	fun addDay(n: Int): MyDate {
-		calendar.add(Calendar.DAY_OF_MONTH, n)
-		return this
-	}
 
-	fun addHour(n: Int): MyDate {
-		calendar.add(Calendar.HOUR_OF_DAY, n)
-		return this
-	}
+    fun addYear(n: Int): MyDate {
+        calendar.add(Calendar.YEAR, n)
+        return this
+    }
 
-	fun addMinute(n: Int): MyDate {
-		calendar.add(Calendar.MINUTE, n)
-		return this
-	}
+    fun addMonth(n: Int): MyDate {
+        calendar.add(Calendar.MONTH, n)
+        return this
+    }
 
-	fun addSecond(n: Int): MyDate {
-		calendar.add(Calendar.SECOND, n)
-		return this
-	}
+    fun addDay(n: Int): MyDate {
+        calendar.add(Calendar.DAY_OF_MONTH, n)
+        return this
+    }
 
-	fun addMillSecond(n: Int): MyDate {
-		calendar.add(Calendar.MILLISECOND, n)
-		return this
-	}
+    fun addHour(n: Int): MyDate {
+        calendar.add(Calendar.HOUR_OF_DAY, n)
+        return this
+    }
 
-	//yyyy-MM-dd HH:mm:ss
-	fun formatDateTimeShort(): String {
-		return format(FORMAT_DATE_TIME_NO_SEC)
-	}
+    fun addMinute(n: Int): MyDate {
+        calendar.add(Calendar.MINUTE, n)
+        return this
+    }
 
-	//yyyy-MM-dd HH:mm:ss
-	fun formatDateTime(): String {
-		return format(FORMAT_DATE_TIME)
-	}
+    fun addSecond(n: Int): MyDate {
+        calendar.add(Calendar.SECOND, n)
+        return this
+    }
 
-	//yyyy-MM-dd HH:mm:ss.SSS
-	fun formatDateTimeX(): String {
-		return format(FORMAT_DATE_TIME_X)
-	}
+    fun addMillSecond(n: Int): MyDate {
+        calendar.add(Calendar.MILLISECOND, n)
+        return this
+    }
 
-	fun formatYearMonth(): String {
-		return format("yyyy-MM")
-	}
+    //yyyy-MM-dd HH:mm:ss
+    fun formatDateTimeShort(): String {
+        return format(FORMAT_DATE_TIME_NO_SEC)
+    }
 
-	//yyyy-MM-dd
-	fun formatDate(): String {
-		return format(FORMAT_DATE)
-	}
+    //yyyy-MM-dd HH:mm:ss
+    fun formatDateTime(): String {
+        return format(FORMAT_DATE_TIME)
+    }
 
-	//HH:mm:ss
-	fun formatTime(): String {
-		return format(FORMAT_TIME)
-	}
+    //yyyy-MM-dd HH:mm:ss.SSS
+    fun formatDateTimeX(): String {
+        return format(FORMAT_DATE_TIME_X)
+    }
 
-	//HH:mm:ss.SSS
-	fun formatTimeX(): String {
-		return format(FORMAT_TIME_X)
-	}
+    fun formatYearMonth(): String {
+        return format("yyyy-MM")
+    }
 
-	fun format(pattern: String): String {
-		return format(time, pattern)
-	}
+    //yyyy-MM-dd
+    fun formatDate(): String {
+        return format(FORMAT_DATE)
+    }
 
-	fun formatShort(): String {
-		val now = MyDate()
-		if (now.year != year) {
-			return formatDate()
-		}
-		if (now.dayOfYear != dayOfYear) {
-			return format("M-d")
-		}
-		return format("H:mm")
-	}
+    //HH:mm:ss
+    fun formatTime(): String {
+        return format(FORMAT_TIME)
+    }
 
-	fun formatDuration(seconds: Long): String {
-		if (seconds < 60) {
-			return "${seconds}秒"
-		}
-		if (seconds < 60 * 60) {
-			return "${seconds / 60}分${seconds % 60}秒"
-		}
-		return "${seconds / 3600}时${seconds % 3600 / 60}分${seconds % 60}秒"
-	}
+    //HH:mm:ss.SSS
+    fun formatTimeX(): String {
+        return format(FORMAT_TIME_X)
+    }
 
-	fun formatTemp(): String {
-		return format("yyyyMMdd_HHmmss_SSS")
-	}
+    fun format(pattern: String): String {
+        return format(time, pattern)
+    }
 
-	companion object {
-		const val FORMAT_DATE = "yyyy-MM-dd"
-		const val FORMAT_TIME = "HH:mm:ss"
-		const val FORMAT_TIME_X = "HH:mm:ss.SSS"
-		const val FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss"
-		const val FORMAT_DATE_TIME_NO_SEC = "yyyy-MM-dd HH:mm"
-		const val FORMAT_DATE_TIME_X = "yyyy-MM-dd HH:mm:ss.SSS"
+    fun formatShort(): String {
+        val now = MyDate()
+        if (now.year != year) {
+            return formatDate()
+        }
+        if (now.dayOfYear != dayOfYear) {
+            return format("M-d")
+        }
+        return format("H:mm")
+    }
 
-		fun format(date: Long, pattern: String): String {
-			val ff = SimpleDateFormat(pattern, Locale.getDefault())
-			return ff.format(Date(date))
-		}
+    fun formatDuration(seconds: Long): String {
+        if (seconds < 60) {
+            return "${seconds}秒"
+        }
+        if (seconds < 60 * 60) {
+            return "${seconds / 60}分${seconds % 60}秒"
+        }
+        return "${seconds / 3600}时${seconds % 3600 / 60}分${seconds % 60}秒"
+    }
 
-		fun makeDate(year: Int, month: Int, day: Int): Long {
-			val c = Calendar.getInstance(Locale.getDefault())
-			c.set(year, month, day)
-			return c.timeInMillis
-		}
+    fun formatTemp(): String {
+        return format("yyyyMMdd_HHmmss_SSS")
+    }
 
-		fun makeTime(hour: Int, minute: Int, second: Int = 0): Long {
-			val c = Calendar.getInstance(Locale.getDefault())
-			c.set(0, 0, 0, hour, minute, second)
-			return c.timeInMillis
-		}
+    companion object {
+        const val FORMAT_DATE = "yyyy-MM-dd"
+        const val FORMAT_TIME = "HH:mm:ss"
+        const val FORMAT_TIME_X = "HH:mm:ss.SSS"
+        const val FORMAT_DATE_TIME = "yyyy-MM-dd HH:mm:ss"
+        const val FORMAT_DATE_TIME_NO_SEC = "yyyy-MM-dd HH:mm"
+        const val FORMAT_DATE_TIME_X = "yyyy-MM-dd HH:mm:ss.SSS"
 
-		fun parse(format: String, dateStr: String): MyDate? {
-			val ff = SimpleDateFormat(format, Locale.getDefault())
-			try {
-				val d = ff.parse(dateStr)
-				if (d != null) {
-					return MyDate(d.time)
-				}
-			} catch (ex: Exception) {
-				ex.printStackTrace()
-			}
-			return null
-		}
+        fun format(date: Long, pattern: String): String {
+            val ff = SimpleDateFormat(pattern, Locale.getDefault())
+            return ff.format(Date(date))
+        }
 
-		fun parseTime(s: String?): MyDate? {
-			if (s == null || s.length < 6) {
-				return null
-			}
-			return parse(FORMAT_TIME, s)
-		}
+        fun makeDate(year: Int, month: Int, day: Int): Long {
+            val c = Calendar.getInstance(Locale.getDefault())
+            c.set(year, month, day)
+            return c.timeInMillis
+        }
 
-		fun parseTimeX(s: String?): MyDate? {
-			if (s == null || s.length < 6) {
-				return null
-			}
-			return parse(FORMAT_TIME_X, s)
-		}
+        fun makeTime(hour: Int, minute: Int, second: Int = 0): Long {
+            val c = Calendar.getInstance(Locale.getDefault())
+            c.set(0, 0, 0, hour, minute, second)
+            return c.timeInMillis
+        }
 
-		fun parseDate(s: String?): MyDate? {
-			if (s == null || s.length < 6) {
-				return null
-			}
-			return parse(FORMAT_DATE, s)
-		}
+        fun parse(format: String, dateStr: String): MyDate? {
+            val ff = SimpleDateFormat(format, Locale.getDefault())
+            try {
+                val d = ff.parse(dateStr)
+                if (d != null) {
+                    return MyDate(d.time)
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+            }
+            return null
+        }
 
-		fun parseDateTime(s: String?): MyDate? {
-			if (s == null || s.length < 6) {
-				return null
-			}
-			return parse(FORMAT_DATE_TIME, s)
-		}
+        fun parseTime(s: String?): MyDate? {
+            if (s == null || s.length < 6) {
+                return null
+            }
+            return parse(FORMAT_TIME, s)
+        }
 
-		fun parseDateTimeX(s: String?): MyDate? {
-			if (s == null || s.length < 6) {
-				return null
-			}
-			return parse(FORMAT_DATE_TIME_X, s)
-		}
+        fun parseTimeX(s: String?): MyDate? {
+            if (s == null || s.length < 6) {
+                return null
+            }
+            return parse(FORMAT_TIME_X, s)
+        }
 
-		private var tmpFileN: Long = 1
-		fun tmpFile(): String {
-			val s = MyDate().format("yyyyMMdd_HHmmss_SSS")
-			++tmpFileN
-			return "$s-$tmpFileN"
-		}
-	}
+        fun parseDate(s: String?): MyDate? {
+            if (s == null || s.length < 6) {
+                return null
+            }
+            return parse(FORMAT_DATE, s)
+        }
+
+        fun parseDateTime(s: String?): MyDate? {
+            if (s == null || s.length < 6) {
+                return null
+            }
+            return parse(FORMAT_DATE_TIME, s)
+        }
+
+        fun parseDateTimeX(s: String?): MyDate? {
+            if (s == null || s.length < 6) {
+                return null
+            }
+            return parse(FORMAT_DATE_TIME_X, s)
+        }
+
+        private var tmpFileN: Long = 1
+        fun tmpFile(): String {
+            val s = MyDate().format("yyyyMMdd_HHmmss_SSS")
+            ++tmpFileN
+            return "$s-$tmpFileN"
+        }
+    }
 }
 
 
-
-val Int.SEC: Long get() = (this * 1000).toLong()
-val Int.MIN: Long get() = (this * 60_000).toLong()
-val Int.HOUR: Long get() = (this * 3600_000).toLong()
